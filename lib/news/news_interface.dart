@@ -38,12 +38,14 @@ class _NewsInterfaceState extends State<NewsInterface> {
                 itemCount: articles.length,
                 itemBuilder: (context, index, realIndex) {
                   final article = articles[index];
-                  return NewsViewPage(
-                    title: article!.title,
-                    author: article!.author,
-                    urlToImage: article!.urlToImage,
-                    content: article!.content,
-                  );
+                   return Padding(
+                    padding: const EdgeInsets.only(bottom: 30.0), // Increase the vertical padding
+                    child: NewsViewPage(
+                    title: article?.title ?? 'No title available',
+                    author: article?.author ?? 'No author available',
+                    urlToImage: article?.urlToImage ?? 'https://via.placeholder.com/150',
+                    content: article?.content ?? 'No content available',
+                  ));
                 },
                 options: CarouselOptions(
                     scrollDirection: Axis.vertical,
